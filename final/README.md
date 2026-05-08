@@ -41,7 +41,7 @@ Part of the **"Workload-Aware Linux Resource Management Framework"** capstone pr
 ## Quick Install
 
 ```bash
-git clone https://github.com/group4/capstone_monitor.git
+git clone https://github.com/Reedam-Shrestha/Capstone-monitor.git
 cd capstone_monitor/final
 sudo ./install.sh
 ```
@@ -177,7 +177,7 @@ git push
 After pushing, anyone can install with:
 
 ```bash
-git clone https://github.com/group4/capstone_monitor.git
+git clone https://github.com/Reedam-Shrestha/Capstone-monitor.git
 cd capstone_monitor/final
 sudo ./install.sh
 ```
