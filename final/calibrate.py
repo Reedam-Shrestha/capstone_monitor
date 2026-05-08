@@ -9,8 +9,9 @@ from pathlib import Path
 
 # Resolve paths
 SCRIPT_DIR  = Path(__file__).parent.resolve()
-MONITOR_BIN = SCRIPT_DIR / "monitor_final"
-BPF_OBJ     = SCRIPT_DIR / "bpf" / "ctx_switch.bpf.o"
+INSTALL_DIR = SCRIPT_DIR.parent           # /opt/capstone_monitor/
+MONITOR_BIN = INSTALL_DIR / "monitor_final"
+BPF_OBJ     = INSTALL_DIR / "bpf" / "ctx_switch.bpf.o"
 
 SUDO_USER = os.environ.get("SUDO_USER")
 if SUDO_USER:
