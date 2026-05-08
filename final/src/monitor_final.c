@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/syscall.h>
+#include <sys/mman.h>   /* shm_unlink */
 #include <sys/socket.h>   /* sendto, AF_UNIX, SOCK_DGRAM */
 #include <sys/un.h>       /* sockaddr_un */
 #include <errno.h>
@@ -207,7 +208,7 @@ static void handle_fatal_signal(int sig) {
     /* Emit a terse crash notice via write() (fprintf is NOT async-signal-safe) */
     static const char msg[] =
         "[daemon] FATAL signal received — shm unlinked, re-raising for core dump\n";
-    write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        (void)write(STDERR_FILENO, msg, sizeof(msg) - 1);
 
     /* Restore the default handler, then re-raise.  This causes the kernel to:
      *   1. Terminate with the correct signal (SIGSEGV/SIGABRT), not exit(1).
